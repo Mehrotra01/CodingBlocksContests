@@ -6,18 +6,23 @@ public class replaceAllPi {
         int t = sc.nextInt();
         for (int ab = 0; ab < t; ab++) {
             String str = sc.next();
-            sc.close();
-            String output = "";
+            String out = "";
             char ch[] = str.toCharArray();
-            for (int i = 0; i < ch.length; i++) {
-                if (ch[i] == 'p' && ch[i + 1] == 'i') {
-                    output += 3.14;
-                    i++;
-                } else {
-                    output += ch[i];
-                }
-            }
-            System.out.println(output);
+            solve(ch,0,out);
         }
+        sc.close();
+    }
+    public static void solve(char[] ch,int index,String out){
+        if(index==ch.length){
+            System.out.println(out);
+            return;
+        }
+        if (ch[index] == 'p' && ch[index + 1] == 'i') {
+                    out += 3.14;
+                    index++;
+                } else {
+                    out += ch[index];
+                }
+                solve(ch, index+1, out);
     }
 }
